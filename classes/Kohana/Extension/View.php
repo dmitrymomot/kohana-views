@@ -31,9 +31,10 @@ class Kohana_Extension_View extends Kohana_View {
 	 *
 	 * @return string
 	 */
-	public static function render_each($view, array $data = NULL, $key = 'item', $empty = NULL)
+	public static function render_each($view, array $data = NULL, $key = NULL, $empty = NULL)
 	{
-		$views = NULL;
+		$views 	= NULL;
+		$key 	= ($key) ? $key : 'item';
 
 		if ($data != NULL AND count($data) > 0)
 		{
