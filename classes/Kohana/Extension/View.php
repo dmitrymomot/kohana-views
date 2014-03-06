@@ -35,8 +35,9 @@ class Kohana_Extension_View extends Kohana_View {
 	{
 		$views 	= NULL;
 		$key 	= ($key) ? $key : 'item';
+		$count	= count($data);
 
-		if ($data != NULL AND count($data) > 0)
+		if ($data != NULL AND $count > 0)
 		{
 			$data = array_values($data);
 
@@ -45,6 +46,9 @@ class Kohana_Extension_View extends Kohana_View {
 				$views .= static::factory($view)
 					->set($key, $val)
 					->set('index', $k+1)
+					->set('last_item', (($k+1) == $count))
+					->set('first_item', ($k == 0))
+					->set('count_all', $count)
 					->render();
 			}
 		}
