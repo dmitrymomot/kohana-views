@@ -46,8 +46,8 @@ class Kohana_Extension_View extends Kohana_View {
 				$views .= static::factory($view)
 					->set($key, $val)
 					->set('index', $k+1)
-					->set('last_item', (($k+1) == $count))
 					->set('first_item', ($k == 0))
+					->set('last_item', (($k+1) == $count))
 					->set('count_all', $count)
 					->render();
 			}
